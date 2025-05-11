@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    *{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .game-box {
+        width: 90%;
+        max-width: 600px;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .computer-hand, .user-hand {
+        width: 100%;
+        height: 50%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .images-btn {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .user-img {
+        width: 80%;
+        height: 120%;
+        background-image: url(paper.png);
+        background-size: contain;
+        background-position: center;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 10px 10px black;
+        background-repeat: no-repeat;
+
+        scale: .5;
+        display: none;
+    }
+    .hand-img-box {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    }
+    .hand-data {
+        width: 20%;
+        height: 80%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hand-img-box img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 2px 2px black;
+    }
+    .hand-img-box img:hover {
+        box-shadow: 5px 5px black;
+    }
+    .computer-hand h1 {
+        color: #c8564b;
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        font-weight: bold;
+   
+    }
+    .yourturn{
+        color: #c8564b;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: -13%;
+   
+    }
+    .computer-hand-img-animation {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+     
+        align-items: center;
+    }
+    .img-ani {
+        width: 40%;
+        height: 80%;
+        display: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 5px 5px black;
+        background-position: center;
+    }
+    #retry{
+        position: absolute;
+        font-size: 2.5rem;
+        color: #c8564b;
+        cursor: pointer;
+        top: 54%;
+        left: 50%;
+        display: none;
+        transform: translate(-50%, -50%);
+    }
+    .img-animation {
+        width: 40%;
+        height: 100%;
+        background-image: url('1.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: img-ani 1s infinite linear;
+        animation-play-state: running;
+        background-position: center;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 5px 5px black;
+        animation-delay: 0s;
+    }
+    @keyframes img-ani {
+        0% {
+            background-image: url(1.png);
+        }
+        50% {
+            background-image: url(2.png);
+        }
+        100% {
+            background-image: url(3.png);
+        }
+    }
+    @media (max-width: 768px) {
+        .game-box {
+            width: 100%;
+        }
+        .computer-hand h1 {
+            font-size: 1.2rem;
+        }
+        .hand-img-box {
+            gap: 5px;
+        }
+        .hand-data {
+            width: 25%;
+        }
+    }
+    @media (max-width: 480px) {
+        .computer-hand h1 {
+            font-size: 1rem;
+        }
+        .hand-data {
+            width: 30%;
+        }
+    }
+
+    @media (max-width: 580px) {
+        .computer-hand h1 {
+            font-size: 1.5rem;
+            margin-bottom: -10%;
+            margin-top: 20%;
+        }
+     .img-animation{
+        width: 60%;
+        height: 60%;
+     }
+     .yourturn{
+        margin-bottom: -30%;
+     }
+    .img-ani{
+        width: 60%;
+        height: 60%;
+        display: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 5px 5px black;
+        background-position: center;
+    }
+     .user-img{
+        width: 120%;
+        height: 100%;
+        display: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 2px solid black;
+        transition: .2s ease-in-out;
+        box-shadow: 7px 7px black;
+        background-position: center;
+    }
+    }
+       @media (max-width: 380px) {
+        .computer-hand h1 {
+            font-size: 1.5rem;
+            margin-bottom: -10%;
+            margin-top: 10%;
+        }
+     .img-animation{
+        width: 60%;
+        height: 70%;
+     }
+     .yourturn{
+        margin-bottom: -20%;
+     }
+    }
+ 
+</style>
+<body>
+    <div class="container">
+        <div class="game-box">
+            <div class="computer-hand" style="--col:rgb(0, 0, 0);">
+                <h1>Rock Paper Scicers Game</h1>
+                <i id="retry" class="fa-duotone fa-solid fa-rotate-right fa-fw"></i>
+
+                <div class="computer-hand-img-animation">
+                    <img class="img-ani"></img>
+                    <div class="img-animation"></div>
+                </div>
+            
+            </div>
+            <div class="user-hand" style="--col:rgb(0, 0, 0);">
+                <h2 class="yourturn">Chose Your Move</h2>
+
+                <div class="images-btn">
+                    <div class="hand-img-box">
+                        <div class="hand-data" ><img src="1.png" class="hand-img" alt="paper">
+                            <input type="text" value="1" style="display:none;">
+                        </div>
+                        <div class="hand-data">
+                            <input type="text" value="2" style="display:none;">
+
+                            <img src="2.png" class="hand-img" alt="scicer">
+
+                        </div>
+                        <div class="hand-data">
+                            <input type="text" value="3" style="display:none;">
+
+                            <img src="3.png" class="hand-img" alt="rock">
+
+                        </div>
+                    </div>
+                </div>
+                <img class="user-img"></img>
+            </div>
+            
+        </div>
+    </div>
+<script>
+// let secondsLeft = 3;
+
+// const timer = setInterval(() => {
+//   document.getElementById('timer').innerText = secondsLeft;
+//   secondsLeft--;
+
+//   if (secondsLeft === 0) {
+//     clearInterval(timer);
+//     document.getElementById('timer').innerText = "Time's up!";
+//     document.getElementById('timer').style.fontSize = '1rem';
+
+//   }
+// }, 1000);
+
+
+
+
+
+var hand = document.querySelectorAll('.hand-data');
+var img_value = 2;
+
+hand.forEach(h=>{
+    h.addEventListener("click",()=>{
+       var img_val = h.querySelector('input').value;
+img_value =img_val;
+
+
+gameEnd();
+    })
+    
+})
+
+
+
+function gameEnd(){
+    let randomNum = Math.floor(Math.random() * 3) + 1;
+    console.log(img_value)
+
+    document.querySelector('.img-ani').src = `${randomNum}.png`;
+document.querySelector('.user-img').src = `${img_value}.png`;
+
+    document.querySelector('.user-img').style.display = "block";
+    document.querySelector('.img-animation').style.display = "none";
+    document.querySelector('.img-ani').style.display = "flex";
+    document.querySelector('.images-btn').style.display = "none";
+    document.querySelector('.yourturn').style.display = "none";
+    document.getElementById('retry').style.display = "block";
+
+    if(randomNum == img_value){
+        document.querySelector('.computer-hand').style.setProperty('--col','rgb(0, 0, 0)');
+        document.querySelector('.computer-hand h1').innerText = "Draw!";
+
+
+
+}
+
+else if (randomNum==1 && img_value==2 || randomNum == 2 && img_value == 3 || randomNum == 3 && img_value == 1){
+        document.querySelector('.computer-hand h1').innerText = "You Lose!";
+
+}
+else if(randomNum==1 && img_value==3 || randomNum == 2 && img_value == 1 || randomNum == 3 && img_value == 2){
+        document.querySelector('.computer-hand h1').innerText = "You Win!";
+
+}
+
+
+
+}
+document.getElementById('retry').addEventListener('click', () => {
+    location.reload();
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>
